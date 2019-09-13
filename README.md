@@ -15,7 +15,7 @@ npm i fabric-sdk-kvs-secretsmanager
 ```yaml
 # your network.yaml
 client:
-  # Since the node.js SDK supports pluggable KV stores, the properties under "credentialStore"
+  # node.js SDK supports pluggable KV stores, the properties under "credentialStore"
   # are implementation specific
   credentialStore:
     url: 'https://secretsmanager.us-east-1.amazonaws.com'
@@ -37,27 +37,26 @@ client:
 ```javascript
 const Client = require('fabric-client');
 
-//fabric-sdk-kvs-secretsmanager
+//set the key-value-store to use fabric-sdk-kvs-secretsmanager
 Client.setConfigSetting('key-value-store', 'fabric-sdk-kvs-secretsmanager');
 
-// load the network.yaml from  previous step
+// load the network.yaml 
 const client = Client.loadFromConfig('<path-to-your-network.yaml>');
 
-// initialize credential stores
+// initialize credential stores to use AWS Secrets Manager
 await client.initCredentialStores();
 
-// then it's done.
+// then you can set and get secrets from secrets manager via this module
 
-// Now you just need to get from state store
 const user = await client.loadUserFromStateStore(username);
 await client.setUserContext(user);
 
-// run invoke/query with this identity
+// now you can run invoke/query with this identity
 
 ```
 
 ## Check the credentials from AWS
-use AWS Console to see what is in the secretsmanager store.
+use AWS Console to see what is in AWS Secrets Manager.
 
 ## License
  
