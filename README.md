@@ -10,7 +10,7 @@ npm i fabric-sdk-kvs-secretsmanager
 
 ## Config
 
-1. config your network definition to use AWS credentialStore
+1. configure your network definition to use AWS Secrets Manager. Note that the parameter called 'profile' below should be used for development purpose only. The AWS credentials should come from IAM role attached to the lambda function or EC2.
 
 ```yaml
 # your network.yaml
@@ -20,7 +20,7 @@ client:
   credentialStore:
     url: 'https://secretsmanager.us-east-1.amazonaws.com'
     region: 'us-east-1'
-    profile: 'test'
+    profile: 'test' # This parameter called profile should be used for development purpose only. The AWS credentials should come from IAM role attached to the lambda function or EC2. 
 
     # Specific to the CryptoSuite implementation. Software-based implementations like
     # CryptoSuite_ECDSA_AES.js requires a key store. PKCS#11 based implementations does
@@ -29,7 +29,7 @@ client:
       # Specific to the underlying KeyValueStore that backs the crypto key store.
       url: 'https://secretsmanager.us-east-1.amazonaws.com'
       region: 'us-east-1'
-      profile: 'test'
+      profile: 'test'  # This parameter called profile should be used for development purpose only. The AWS credentials should come from IAM role attached to the lambda function or EC2.
 ```
 
 2. config fabric-sdk-node to use fabric-ca-kvs-secretsmanager 

@@ -1,15 +1,17 @@
 {
   "name": "fabric-sdk-kvs-secretsmanager",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "aws secrets manager kvs for fabric-sdk-node",
   "main": "index.js",
   "scripts": {
     "lint": "eslint .",
     "test": "mocha"
   },
-  "repository": {},
-  "keywords": [
-  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/aws-samples/fabric-sdk-kvs-secretsmanager"
+  },
+  "keywords": [],
   "author": "Pavan Kumar Sunder",
   "license": "Apache-2.0",
   "bugs": {},
